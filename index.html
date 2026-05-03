@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mie Goceng Level Up - Mie lezat dengan level pedas 1-5, harga mulai Rp 5.000. 1000+ porsi terjual, 5 menit siap saji, 100% halal, rating 5.0. Karawang Timur.">
+    <meta name="keywords" content="mie goceng, mie pedas level, mie murah karawang, mie halal, kuliner karawang timur, mie nyemek, mie carbonara, mie jumbo">
+    <meta name="author" content="Mie Goceng Level Up">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Mie Goceng Level Up | Mie Lezat Level Pedas 1-5 - Karawang">
+    <meta property="og:description" content="Mie lezat level pedas 1-5, mulai Rp 5.000. 600+ porsi terjual, rating 5.0!">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="id_ID">
+    <title>Mie Goceng Level Up | Mie Lezat Level Pedas 1-5 - Karawang</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍜</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Restaurant","name":"Mie Goceng Level Up","description":"Nikmati mie dengan cita rasa khas dan level pedas sesuai selera.","address":{"@type":"PostalAddress","streetAddress":"Ruko Kartika Residence","addressLocality":"Karawang Timur","addressRegion":"Jawa Barat","postalCode":"41317","addressCountry":"ID"},"telephone":"+6285643559580","servesCuisine":["Indonesian","Mie","Asian"],"priceRange":"Rp","openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"10:00","closes":"22:00"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","bestRating":"5","ratingCount":"100"},"paymentAccepted":["Cash","QRIS","E-Wallet"]}
+    </script>
+    <style>
+        :root {
+            --bg: #F2F0EB;
+            --bg-white: #FFFFFF;
+            --text: #1C1C1C;
+            --text-sec: #4A4A4A;
+            --text-muted: #8C8C88;
+            --accent: #D94F1E;
+            --accent-hover: #C04418;
+            --accent-light: rgba(217,79,30,0.08);
+            --gold: #C9A96E;
+            --gold-light: rgba(201,169,110,0.15);
+            --border: rgba(28,28,28,0.1);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 15px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+            --radius: 10px;
+            --radius-lg: 16px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family:'Poppins',sans-serif; background:var(--bg); color:var(--text); font-weight:300; line-height:1.6; overflow-x:hidden; }
+
+        /* Preloader */
+        #preloader { position:fixed; inset:0; background:var(--text); z-index:99999; display:flex; align-items:center; justify-content:center; transition:opacity .5s ease, visibility .5s ease; }
+        #preloader.hide { opacity:0; visibility:hidden; }
+        #preloader span { color:var(--bg); font-size:1.5rem; font-weight:600; letter-spacing:.1em; animation:pulse 1s ease infinite alternate; }
+        @keyframes pulse { from{opacity:.4} to{opacity:1} }
+
+        /* Header */
+        .site-header { position:fixed; top:0; left:0; right:0; z-index:1000; padding:1rem 2rem; transition:all .4s ease; }
+        .site-header.scrolled { background:rgba(242,240,235,0.92); backdrop-filter:blur(12px); box-shadow:var(--shadow-sm); }
+        .nav-link { position:relative; font-size:.8rem; font-weight:500; text-transform:uppercase; letter-spacing:.12em; color:var(--text); text-decoration:none; padding:.25rem 0; transition:color .3s; }
+        .nav-link::after { content:''; position:absolute; bottom:0; left:0; width:0; height:1.5px; background:var(--accent); transition:width .3s ease; }
+        .nav-link:hover { color:var(--accent); }
+        .nav-link:hover::after { width:100%; }
+
+        /* Mobile Menu */
+        .mobile-menu { position:fixed; inset:0; background:rgba(242,240,235,0.98); backdrop-filter:blur(20px); z-index:999; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2rem; transform:translateX(100%); transition:transform .5s cubic-bezier(.22,1,.36,1); }
+        .mobile-menu.open { transform:translateX(0); }
+        .mobile-menu a { font-size:1.2rem; font-weight:500; text-transform:uppercase; letter-spacing:.15em; color:var(--text); text-decoration:none; transition:color .3s; }
+        .mobile-menu a:hover { color:var(--accent); }
+
+        /* Hamburger */
+        .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; z-index:1001; padding:4px; }
+        .hamburger span { display:block; width:24px; height:1.5px; background:var(--text); transition:all .3s ease; }
+        .hamburger.active span:nth-child(1) { transform:rotate(45deg) translate(4px,4px); }
+        .hamburger.active span:nth-child(2) { opacity:0; }
+        .hamburger.active span:nth-child(3) { transform:rotate(-45deg) translate(4px,-4px); }
+
+        /* Hero */
+        .hero { position:relative; height:100vh; min-height:600px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+        .hero-bg { position:absolute; inset:0; }
+        .hero-bg img { width:100%; height:100%; object-fit:cover; filter:brightness(0.35) contrast(1.1); transform:scale(1.05); animation:heroZoom 20s ease-in-out infinite alternate; }
+        @keyframes heroZoom { from{transform:scale(1.05)} to{transform:scale(1.15)} }
+        .hero-content { position:relative; z-index:2; text-align:center; color:#fff; padding:0 1.5rem; max-width:800px; }
+        .hero-badge { display:inline-flex; align-items:center; gap:.5rem; background:rgba(255,255,255,0.12); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.15); padding:.4rem 1rem; border-radius:50px; font-size:.75rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; margin-bottom:1.5rem; }
+        .hero h1 { font-size:clamp(2.2rem,6vw,4.5rem); font-weight:600; line-height:1.05; letter-spacing:-.03em; margin-bottom:1rem; }
+        .hero h1 em { font-style:italic; color:var(--accent); }
+        .hero p { font-size:clamp(.95rem,2vw,1.15rem); font-weight:300; opacity:.85; max-width:550px; margin:0 auto 2rem; line-height:1.7; }
+        .hero-scroll { position:absolute; bottom:2rem; left:50%; transform:translateX(-50%); z-index:2; color:rgba(255,255,255,0.5); font-size:.7rem; letter-spacing:.15em; text-transform:uppercase; display:flex; flex-direction:column; align-items:center; gap:.5rem; animation:bounce 2s ease infinite; }
+        @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+
+        /* Buttons */
+        .btn { display:inline-flex; align-items:center; gap:.5rem; padding:.75rem 1.75rem; border-radius:50px; font-family:'Poppins',sans-serif; font-size:.8rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; transition:all .3s ease; cursor:pointer; border:none; }
+        .btn-primary { background:var(--accent); color:#fff; }
+        .btn-primary:hover { background:var(--accent-hover); transform:translateY(-2px); box-shadow:0 8px 25px rgba(217,79,30,0.3); }
+        .btn-outline { background:transparent; color:#fff; border:1.5px solid rgba(255,255,255,0.4); }
+        .btn-outline:hover { background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.7); }
+        .btn-dark { background:var(--text); color:var(--bg); }
+        .btn-dark:hover { background:#333; transform:translateY(-2px); box-shadow:var(--shadow-lg); }
+        .btn-wa { background:#25D366; color:#fff; }
+        .btn-wa:hover { background:#1da851; transform:translateY(-2px); box-shadow:0 8px 25px rgba(37,211,102,0.3); }
+
+        /* Stats */
+        .stats-bar { background:var(--text); color:var(--bg); }
+        .stat-item { text-align:center; padding:1.5rem 1rem; }
+        .stat-num { font-size:clamp(1.5rem,3vw,2.2rem); font-weight:600; color:var(--accent); }
+        .stat-label { font-size:.7rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; opacity:.7; margin-top:.25rem; }
+
+        /* Section */
+        .section { padding:5rem 2rem; }
+        .section-alt { background:var(--bg-white); }
+        .section-label { font-size:.7rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:.75rem; }
+        .section-title { font-size:clamp(1.8rem,4vw,2.5rem); font-weight:600; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+        .section-desc { font-size:1rem; color:var(--text-sec); max-width:550px; line-height:1.7; }
+        .divider { width:50px; height:2px; background:var(--accent); margin:1.5rem 0; }
+
+        /* About */
+        .about-img { position:relative; overflow:hidden; border-radius:var(--radius-lg); }
+        .about-img img { width:100%; height:100%; object-fit:cover; transition:transform 1s ease; }
+        .about-img:hover img { transform:scale(1.05); }
+        .about-badge { position:absolute; bottom:1.25rem; left:1.25rem; background:var(--accent); color:#fff; padding:.5rem 1rem; border-radius:50px; font-size:.75rem; font-weight:600; letter-spacing:.05em; }
+        .about-features { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:2rem; }
+        .about-feat { display:flex; align-items:flex-start; gap:.75rem; }
+        .about-feat i { color:var(--accent); margin-top:3px; font-size:.9rem; }
+        .about-feat span { font-size:.85rem; font-weight:400; }
+
+        /* Menu Tabs */
+        .menu-tabs { display:flex; gap:.5rem; margin-bottom:2.5rem; flex-wrap:wrap; }
+        .menu-tab { padding:.6rem 1.5rem; border-radius:50px; font-size:.8rem; font-weight:500; letter-spacing:.05em; cursor:pointer; border:1.5px solid var(--border); background:transparent; color:var(--text-sec); transition:all .3s; font-family:'Poppins',sans-serif; }
+        .menu-tab.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+        .menu-tab:hover:not(.active) { border-color:var(--accent); color:var(--accent); }
+
+        /* Menu Cards */
+        .menu-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:1.5rem; }
+        .menu-card { background:var(--bg-white); border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--border); transition:all .4s ease; }
+        .menu-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+        .menu-card-img { position:relative; height:200px; overflow:hidden; }
+        .menu-card-img img { width:100%; height:100%; object-fit:cover; transition:transform .7s ease; }
+        .menu-card:hover .menu-card-img img { transform:scale(1.08); }
+        .menu-card-price { position:absolute; top:1rem; right:1rem; background:var(--accent); color:#fff; padding:.3rem .8rem; border-radius:50px; font-size:.8rem; font-weight:600; }
+        .menu-card-body { padding:1.25rem; }
+        .menu-card-name { font-size:1.05rem; font-weight:600; margin-bottom:.35rem; }
+        .menu-card-desc { font-size:.82rem; color:var(--text-sec); line-height:1.5; margin-bottom:1rem; }
+
+        /* Level Selector */
+        .level-selector { display:flex; align-items:center; gap:.4rem; margin-bottom:1rem; flex-wrap:wrap; }
+        .level-label { font-size:.7rem; font-weight:500; color:var(--text-muted); letter-spacing:.05em; text-transform:uppercase; margin-right:.25rem; }
+        .level-btn { width:28px; height:28px; border-radius:50%; border:1.5px solid var(--border); background:transparent; font-size:.7rem; font-weight:600; color:var(--text-sec); cursor:pointer; transition:all .2s; display:flex; align-items:center; justify-content:center; font-family:'Poppins',sans-serif; }
+        .level-btn.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+        .level-btn:hover:not(.active) { border-color:var(--accent); color:var(--accent); }
+        .level-1.active { background:#4CAF50; border-color:#4CAF50; }
+        .level-2.active { background:#FFC107; border-color:#FFC107; color:var(--text); }
+        .level-3.active { background:#FF9800; border-color:#FF9800; }
+        .level-4.active { background:#F44336; border-color:#F44336; }
+        .level-5.active { background:#9C27B0; border-color:#9C27B0; }
+
+        /* Promo */
+        .promo-section { background:linear-gradient(135deg, var(--text) 0%, #2a2a2a 100%); color:var(--bg); position:relative; overflow:hidden; }
+        .promo-section::before { content:''; position:absolute; top:-50%; right:-20%; width:500px; height:500px; background:radial-gradient(circle, rgba(217,79,30,0.15), transparent 70%); border-radius:50%; }
+        .promo-card { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:var(--radius-lg); padding:2rem; transition:all .4s ease; backdrop-filter:blur(4px); }
+        .promo-card:hover { background:rgba(255,255,255,0.1); transform:translateY(-4px); }
+        .promo-badge { display:inline-block; background:var(--accent); color:#fff; padding:.25rem .75rem; border-radius:50px; font-size:.7rem; font-weight:600; letter-spacing:.05em; margin-bottom:1rem; }
+        .promo-title { font-size:1.3rem; font-weight:600; margin-bottom:.5rem; }
+        .promo-desc { font-size:.85rem; opacity:.75; line-height:1.6; margin-bottom:1.25rem; }
+        .promo-price { font-size:1.5rem; font-weight:700; color:var(--accent); }
+        .promo-old { font-size:.85rem; opacity:.5; text-decoration:line-through; margin-left:.5rem; }
+
+        /* Testimonials */
+        .testi-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:1.5rem; }
+        .testi-card { background:var(--bg-white); border-radius:var(--radius-lg); padding:2rem; border:1px solid var(--border); transition:all .4s ease; }
+        .testi-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); }
+        .testi-stars { color:#FFC107; font-size:.85rem; margin-bottom:1rem; display:flex; gap:2px; }
+        .testi-text { font-size:.92rem; color:var(--text-sec); line-height:1.7; margin-bottom:1.25rem; font-style:italic; }
+        .testi-author { display:flex; align-items:center; gap:.75rem; }
+        .testi-avatar { width:40px; height:40px; border-radius:50%; background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center; font-weight:600; font-size:.85rem; }
+        .testi-name { font-size:.85rem; font-weight:600; }
+        .testi-info { font-size:.72rem; color:var(--text-muted); }
+
+        /* Gallery */
+        .gallery-grid { display:grid; grid-template-columns:repeat(3, 1fr); grid-auto-rows:250px; gap:.75rem; }
+        .gallery-item { border-radius:var(--radius); overflow:hidden; cursor:pointer; position:relative; }
+        .gallery-item img { width:100%; height:100%; object-fit:cover; transition:transform .7s ease, filter .5s ease; }
+        .gallery-item:hover img { transform:scale(1.08); filter:brightness(0.7); }
+        .gallery-item::after { content:'\f065'; font-family:'Font Awesome 6 Free'; font-weight:900; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.2rem; opacity:0; transition:opacity .3s; }
+        .gallery-item:hover::after { opacity:1; }
+        .gallery-item.span-2 { grid-column:span 2; }
+        .gallery-item.span-row { grid-row:span 2; }
+
+        /* Lightbox */
+        .lightbox { position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:9999; display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; transition:all .3s ease; cursor:pointer; }
+        .lightbox.active { opacity:1; visibility:visible; }
+        .lightbox img { max-width:90%; max-height:90vh; border-radius:var(--radius); object-fit:contain; transform:scale(.9); transition:transform .4s ease; }
+        .lightbox.active img { transform:scale(1); }
+        .lightbox-close { position:absolute; top:1.5rem; right:1.5rem; background:none; border:none; color:#fff; font-size:2rem; cursor:pointer; width:44px; height:44px; display:flex; align-items:center; justify-content:center; transition:opacity .3s; opacity:.7; }
+        .lightbox-close:hover { opacity:1; }
+
+        /* Contact */
+        .contact-card { background:var(--bg-white); border-radius:var(--radius-lg); padding:1.5rem; border:1px solid var(--border); display:flex; align-items:flex-start; gap:1rem; transition:all .3s; }
+        .contact-card:hover { box-shadow:var(--shadow-sm); }
+        .contact-icon { width:44px; height:44px; border-radius:var(--radius); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:1rem; }
+        .contact-label { font-size:.7rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:.2rem; }
+        .contact-value { font-size:.9rem; font-weight:500; }
+        .contact-value a { color:var(--text); text-decoration:none; transition:color .3s; }
+        .contact-value a:hover { color:var(--accent); }
+        .map-container { border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--border); height:100%; min-height:350px; }
+        .map-container iframe { width:100%; height:100%; border:none; filter:grayscale(30%); transition:filter .5s; }
+        .map-container:hover iframe { filter:grayscale(0); }
+
+        /* Payment badges */
+        .payment-badges { display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.5rem; }
+        .pay-badge { padding:.25rem .6rem; border-radius:50px; font-size:.65rem; font-weight:600; letter-spacing:.03em; background:var(--bg); border:1px solid var(--border); color:var(--text-sec); }
+
+        /* Footer */
+        .site-footer { background:var(--text); color:rgba(242,240,235,0.7); }
+        .footer-link { color:rgba(242,240,235,0.6); text-decoration:none; font-size:.85rem; transition:color .3s; }
+        .footer-link:hover { color:var(--accent); }
+        .social-icon { width:40px; height:40px; border-radius:50%; border:1px solid rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; color:rgba(242,240,235,0.6); transition:all .3s; text-decoration:none; font-size:.9rem; }
+        .social-icon:hover { background:var(--accent); border-color:var(--accent); color:#fff; transform:translateY(-2px); }
+
+        /* Sticky WhatsApp */
+        .sticky-wa { position:fixed; bottom:1.5rem; right:1.5rem; z-index:900; display:flex; align-items:center; gap:.75rem; }
+        .sticky-wa-btn { width:56px; height:56px; border-radius:50%; background:#25D366; color:#fff; display:flex; align-items:center; justify-content:center; font-size:1.5rem; box-shadow:0 4px 20px rgba(37,211,102,0.4); transition:all .3s; text-decoration:none; animation:waPulse 2s ease infinite; cursor:pointer; border:none; }
+        .sticky-wa-btn:hover { transform:scale(1.1); box-shadow:0 6px 30px rgba(37,211,102,0.5); }
+        @keyframes waPulse { 0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.4)} 50%{box-shadow:0 4px 30px rgba(37,211,102,0.6), 0 0 0 8px rgba(37,211,102,0.1)} }
+        .sticky-wa-text { background:var(--bg-white); color:var(--text); padding:.5rem 1rem; border-radius:50px; font-size:.75rem; font-weight:500; box-shadow:var(--shadow-md); white-space:nowrap; animation:fadeSlide .5s ease .5s both; }
+        @keyframes fadeSlide { from{opacity:0;transform:translateX(10px)} to{opacity:1;transform:translateX(0)} }
+
+        /* Scroll to top */
+        .scroll-top { position:fixed; bottom:5.5rem; right:1.5rem; z-index:900; width:40px; height:40px; border-radius:50%; background:var(--text); color:var(--bg); display:flex; align-items:center; justify-content:center; font-size:.85rem; cursor:pointer; border:none; opacity:0; visibility:hidden; transition:all .3s; box-shadow:var(--shadow-md); }
+        .scroll-top.visible { opacity:1; visibility:visible; }
+        .scroll-top:hover { background:var(--accent); transform:translateY(-2px); }
+
+        /* Animations */
+        .fade-up { opacity:0; transform:translateY(30px); transition:opacity .8s ease, transform .8s ease; }
+        .fade-up.visible { opacity:1; transform:translateY(0); }
+        .fade-left { opacity:0; transform:translateX(-30px); transition:opacity .8s ease, transform .8s ease; }
+        .fade-left.visible { opacity:1; transform:translateX(0); }
+        .fade-right { opacity:0; transform:translateX(30px); transition:opacity .8s ease, transform .8s ease; }
+        .fade-right.visible { opacity:1; transform:translateX(0); }
+        .stagger-1 { transition-delay:.1s; }
+        .stagger-2 { transition-delay:.2s; }
+        .stagger-3 { transition-delay:.3s; }
+        .stagger-4 { transition-delay:.4s; }
+        .stagger-5 { transition-delay:.5s; }
+        .stagger-6 { transition-delay:.6s; }
+        .stagger-7 { transition-delay:.7s; }
+        .stagger-8 { transition-delay:.8s; }
+
+        /* Toast notification */
+        .toast { position:fixed; top:5rem; right:1.5rem; z-index:9998; background:var(--text); color:var(--bg); padding:.75rem 1.25rem; border-radius:var(--radius); font-size:.82rem; font-weight:500; box-shadow:var(--shadow-lg); transform:translateX(120%); transition:transform .4s cubic-bezier(.22,1,.36,1); display:flex; align-items:center; gap:.5rem; }
+        .toast.show { transform:translateX(0); }
+        .toast i { color:var(--accent); }
+
+        /* Responsive */
+        @media (max-width:1024px) {
+            .section { padding:3.5rem 1.5rem; }
+            .gallery-grid { grid-template-columns:repeat(2, 1fr); grid-auto-rows:200px; }
+            .gallery-item.span-2 { grid-column:span 1; }
+            .gallery-item.span-row { grid-row:span 1; }
+        }
+        @media (max-width:768px) {
+            .hamburger { display:flex; }
+            .desktop-nav { display:none !important; }
+            .hero h1 { font-size:clamp(1.8rem,8vw,3rem); }
+            .about-features { grid-template-columns:1fr; }
+            .menu-grid { grid-template-columns:1fr; }
+            .testi-grid { grid-template-columns:1fr; }
+            .gallery-grid { grid-template-columns:repeat(2, 1fr); grid-auto-rows:160px; }
+            .sticky-wa-text { display:none; }
+            .stat-item { padding:1rem .5rem; }
+        }
+        @media (max-width:480px) {
+            .site-header { padding:.75rem 1rem; }
+            .section { padding:2.5rem 1rem; }
+            .gallery-grid { grid-auto-rows:130px; gap:.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="preloader"><span>MIE GOCENG</span></div>
+
+<!-- Toast -->
+<div id="toast" class="toast"><i class="fas fa-check-circle"></i><span id="toast-msg"></span></div>
+
+<!-- Header -->
+<header class="site-header" id="header">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <a href="#beranda" class="flex items-center gap-2 text-decoration-none" style="text-decoration:none;color:var(--text)">
+            <span style="font-size:1.6rem">🍜</span>
+            <div>
+                <div style="font-size:.95rem;font-weight:700;letter-spacing:-.02em;line-height:1.1">Mie Goceng</div>
+                <div style="font-size:.55rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)">Level Up</div>
+            </div>
+        </a>
+        <nav class="desktop-nav flex items-center gap-8" style="display:flex">
+            <a href="#beranda" class="nav-link">Beranda</a>
+            <a href="#tentang" class="nav-link">Tentang Kami</a>
+            <a href="#menu" class="nav-link">Menu</a>
+            <a href="#testimoni" class="nav-link">Testimoni</a>
+            <a href="#galeri" class="nav-link">Galeri</a>
+            <a href="#kontak" class="nav-link">Kontak</a>
+        </nav>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#beranda" onclick="closeMenu()">Beranda</a>
+    <a href="#tentang" onclick="closeMenu()">Tentang Kami</a>
+    <a href="#menu" onclick="closeMenu()">Menu</a>
+    <a href="#testimoni" onclick="closeMenu()">Testimoni</a>
+    <a href="#galeri" onclick="closeMenu()">Galeri</a>
+    <a href="#kontak" onclick="closeMenu()">Kontak</a>
+    <a href="https://wa.me/6285643559580?text=Halo%20Mie%20Goceng%2C%20saya%20ingin%20pesan!" class="btn btn-wa" style="margin-top:1rem" onclick="closeMenu()">
+        <i class="fab fa-whatsapp"></i> Pesan Sekarang
+    </a>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="beranda">
+    <div class="hero-bg">
+        <img src="https://picsum.photos/seed/miegoceng-hero2/1400/900" alt="Mie Goceng Level Up - Mie lezat dengan level pedas">
+    </div>
+    <div class="hero-content">
+        <div class="hero-badge"><i class="fas fa-fire" style="color:var(--accent)"></i> Level Pedas 1-5</div>
+        <h1>Rasakan Kelezatan<em>Mie Goceng</em>Level Up</h1>
+        <p>Mie goceng dengan cita rasa khas, dan level pedas yang bisa kamu pilih sendiri. Harga mulai Rp 5.000!</p>
+        <div class="flex items-center justify-center gap-3 flex-wrap">
+            <a href="https://wa.me/6285643559580?text=Halo%20Mie%20Goceng%2C%20saya%20ingin%20pesan!" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Pesan Sekarang</a>
+            <a href="#menu" class="btn btn-outline">Lihat Menu</a>
+        </div>
+    </div>
+    <div class="hero-scroll">
+        <span>Scroll</span>
+        <i class="fas fa-chevron-down" style="font-size:.6rem"></i>
+    </div>
+</section>
+
+<!-- Stats Bar -->
+<div class="stats-bar">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4">
+        <div class="stat-item fade-up stagger-1">
+            <div class="stat-num">600+</div>
+            <div class="stat-label">Porsi Terjual</div>
+        </div>
+        <div class="stat-item fade-up stagger-2">
+            <div class="stat-num">5<span style="font-size:.6em;opacity:.7"> Menit</span></div>
+            <div class="stat-label">Siap Saji</div>
+        </div>
+        <div class="stat-item fade-up stagger-3">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Halal</div>
+        </div>
+        <div class="stat-item fade-up stagger-4">
+            <div class="stat-num">5.0 <i class="fas fa-star" style="font-size:.5em"></i></div>
+            <div class="stat-label">Rating</div>
+        </div>
+    </div>
+</div>
+
+<!-- Tentang Kami -->
+<section class="section" id="tentang">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div class="about-img fade-left" style="height:450px">
+            <img src="c:\Users\HP 14\Desktop\landing page\miegoceng2.jpeg" alt="Dapur Mie Goceng - bahan baku segar" loading="lazy">
+            <div class="about-badge"><i class="fas fa-utensils"></i> &nbsp;Sejak 2024</div>
+        </div>
+        <div class="fade-right">
+            <div class="section-label">Tentang Kami</div>
+            <h2 class="section-title">Mie Goceng Level Up,<br>Bukan Mie Biasa</h2>
+            <div class="divider"></div>
+            <p class="section-desc">Berawal dari kecintaan terhadap mie goceng khas Indonesia, kami hadir dengan konsep <strong>"Level Up"</strong> — di mana kamu bisa memilih sendiri tingkat kepedasan dari level 1 hingga level 5. — </p>
+            <p class="section-desc" style="margin-top:1rem">Setiap porsi dibuat dengan bahan baku segar pilihan, mie kenyal berkualitas, dan bumbu rahasia yang bikin nagih. Dijamin halal dan disajikan cepat — hanya 5 menit!</p>
+            <div class="about-features">
+                <div class="about-feat"><i class="fas fa-leaf"></i><span>Bahan baku segar & berkualitas</span></div>
+                <div class="about-feat"><i class="fas fa-fire-flame-curved"></i><span>Level pedas 1-5 sesuai selera</span></div>
+                <div class="about-feat"><i class="fas fa-bolt"></i><span>5 menit siap saji</span></div>
+                <div class="about-feat"><i class="fas fa-certificate"></i><span>100% bahan halal</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Menu -->
+<section class="section section-alt" id="menu">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12 fade-up">
+            <div class="section-label">Menu Kami</div>
+            <h2 class="section-title">Pilih Favoritmu</h2>
+            <p class="section-desc" style="margin:0 auto">Beragam pilihan Mie Goceng dan minuman segar, semua dengan harga bersahabat.</p>
+        </div>
+        <div class="flex justify-center fade-up">
+            <div class="menu-tabs">
+                <button class="menu-tab active" onclick="switchTab('makanan', this)">🍜 Makanan</button>
+                <button class="menu-tab" onclick="switchTab('minuman', this)">🥤 Minuman</button>
+            </div>
+        </div>
+
+        <!-- Makanan -->
+        <div id="tab-makanan" class="menu-grid">
+            <div class="menu-card fade-up stagger-1">
+                <div class="menu-card-img"><img src="c:\Users\HP 14\Desktop\landing page\mie goceng1.jpeg" alt="Mie Goceng Original" loading="lazy"><div class="menu-card-price">Rp 5.000</div></div>
+                <div class="menu-card-body">
+                    <div class="menu-card-name">Mie Goceng Original</div>
+                    <div class="menu-card-desc">Mie goceng klasik dengan bumbu rahasia yang gurih dan nikmat. Cocok untuk yang tidak suka pedas.</div>
+                    <div class="level-selector"><span class="level-label">Level:</span>
+                        <button class="level-btn level-1 active" onclick="setLevel(this)">1</button>
+                        <button class="level-btn level-2" onclick="setLevel(this)">2</button>
+                        <button class="level-btn level-3" onclick="setLevel(this)">3</button>
+                        <button class="level-btn level-4" onclick="setLevel(this)">4</button>
+                        <button class="level-btn level-5" onclick="setLevel(this)">5</button>
+                    </div>
+                    <a href="https://wa.me/6285643559580?text=Halo%2C%20saya%20mau%20pesan%20Mie%20Goceng%20Original%20(Level%201)%20-%20Rp%205.000" class="btn btn-wa w-full justify-center" style="font-size:.72rem;padding:.6rem 1rem" target="_blank"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+                </div>
+            </div>
+            <div class="menu-card fade-up stagger-2">
+                <div class="menu-card-img"><img src="c:\Users\HP 14\Downloads\miegoceng3.jfif" width= alt="Mie Goceng Goreng Pedas" loading="lazy"><div class="menu-card-price">Rp 5.000</div><div style="position:absolute;top:1rem;left:1rem;background:rgba(244,67,54,0.9);color:#fff;padding:.2rem .6rem;border-radius:50px;font-size:.65rem;font-weight:600">🌶️ PEDAS</div></div>
+                <div class="menu-card-body">
+                    <div class="menu-card-name">Mie Goceng Goreng Pedas</div>
+                    <div class="menu-card-desc">Mie goceng versi goreng dengan bumbu pedas yang meresap sempurna. Wajib coba!</div>
+                    <div class="level-selector"><span class="level-label">Level:</span>
+                        <button class="level-btn level-1" onclick="setLevel(this)">1</button>
+                        <button class="level-btn level-2" onclick="setLevel(this)">2</button>
+                        <button class="level-btn level-3 active" onclick="setLevel(this)">3</button>
+                        <button class="level-btn level-4" onclick="setLevel(this)">4</button>
+                        <button class="level-btn level-5" onclick="setLevel(this)">5</button>
+                    </div>
+                    <a href="https://wa.me/6285643559580?text=Halo%2C%20saya%20mau%20pesan%20Mie%20Goceng%20Goreng%20Pedas%20(Level%203)%20-%20Rp%205.000" class="btn btn-wa w-full justify-center" style="font-size:.72rem;padding:.6rem 1rem" target="_blank"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+                </div>
+            </div>
+            <div class="menu-card fade-up stagger-3">
+                <div class="menu-card-img"><img src="c:\Users\HP 14\Downloads\miegoceng4.jfif" alt="Mie Goceng Kuah" loading="lazy"><div class="menu-card-price">Rp 5.000</div></div>
+                <div class="menu-card-body">
+                    <div class="menu-card-name">Mie Goceng Kuah</div>
+                    <div class="menu-card-desc">Mie goceng berkuah hangat dengan kaldu gurih. Nikmat disantap kapan saja, terutama saat hujan.</div>
+                    <div class="level-selector"><span class="level-label">Level:</span>
+                        <button class="level-btn level-1 active" onclick="setLevel(this)">1</button>
+                        <button class="level-btn level-2" onclick="setLevel(this)">2</button>
+                        <button class="level-btn level-3" onclick="setLevel(this)">3</button>
+                        <button class="level-btn level-4" onclick="setLevel(this)">4</button>
+                        <button class="level-btn level-5" onclick="setLevel(this)">5</button>
+                    </div>
+                    <a href="https://wa.me/6285643559580?text=Halo%2C%20saya%20mau%20pesan%20Mie%20Goceng%20Kuah%20(Level%201)%20-%20Rp%205.000" class="btn btn-wa w-full justify-center" style="font-size:.72rem;padding:.6rem 1rem" target="_blank"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+                </div>
+            </div>
+            <div class="menu-card fade-up stagger-4">
+                <div class="menu-card-img"><img src="c:\Users\HP 14\Downloads\Mie_Nyemek5.jpeg" alt="Mie Nyemek Ori" loading="lazy"><div class="menu-card-price">Rp 5.000</div></div>
+                <div class="menu-card-body">
+                    <div class="menu-card-name">Mie Nyemek Ori</div>
+                    <div class="menu-card-desc">Mie nyemek dengan kuah kental (nyemek) rasa original. Perpaduan sempurna antara goreng dan kuah.</div>
+                    <div class="level-selector"><span class="level-label">Level:</span>
+                        <button class="level-btn level-1 active" onclick="setLevel(this)">1</button>
+                        <button class="level-btn level-2" onclick="setLevel(this)">2</button>
+                        <button class="level-btn level-3" onclick="setLevel(this)">3</button>
+                        <button class="level-btn level-4" onclick="setLevel(this)">4</button>
+                        <button class="level-btn level-5" onclick="setLevel(this)">5</button>
+                    </div>
+                    <a href="https://wa.me/6285643559580?text=Halo%2C%20saya%20mau%20pesan%20Mie%20Nyemek%20Ori%20(Level%201)%20-%20Rp%205.000" class="btn btn-wa w-full justify-center" style="font-size:.72rem;padding:.6rem 1rem" target="_blank"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+                </div>
+            </div>
+            <div class="menu-card fade-up stagger-5">
+                <div class="menu-card-img"><img src="c:\Users\HP 14\Downloads\nyemek pedas 6.jfif" alt="Mie Nyemek Pedas" loading="lazy"><div class="menu-card-price">Rp 5.000</div><div style="position:absolute;top:1rem;left:1rem;background:rgba(244,67,54,0.9);color:#fff;padding:.2rem .6rem;border-radius:50px;font-size:.65rem;font-weight:600">🌶️ PEDAS</div></div>
+                <div class="menu-card-body">
+                    <div class="menu-card-name">Mie Nyemek Pedas</div>
+                    <div class="menu-card-desc">Mie nyemek versi pedas untuk kamu yang suka tantangan. Kuah kental pedas yang bikin ketagihan!</div>
+                    <div class="level-selector"><span class="level-label">Level:</span>
+                        <button class="level-btn level-1" onclick="setLevel(this)">1</button>
+                        <button class="level-btn level-2" onclick="setLevel(this)">2</button>
+                        <button class="level-btn level-3 active" onclick="setLevel(this)">3</button>
+                        <button class="level-btn level-4" onclick="setLevel(this)">4</button>
+                        <button class="level-btn level-5" onclick="setLevel(this)">5</button>
+                    </div>
+                    <a href="https://wa.me/6285643559580?text=Halo%2C%20saya%20mau%20pesan%20Mie%20Nyemek%20Pedas%20(Level%203)%20-%20Rp%205.000" class="btn btn-wa w-full justify-center" style="font-size:.72rem;padding:.6rem 1rem" target="_blank"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+                </div>
+            </div>
+            <div class="menu-card fade-up stagger-6">
+                <div class="menu-card-img"><img src="c:\Users\HP 14\Downloads\Resep-Mie-Carbonara.jpg" alt="Mie Carbonara" loading="lazy"><div class="menu-card-price">Rp 8.000</div><div style="position:absolute;top:1rem;left:1rem;background:var(--gold);color:var(--text);padding:.2rem .6rem;border-radius:50px;font-size:.65rem;font-weight:600">⭐ FAVORIT</div></div>
+                <div class="menu-card-body">
+                    <div class="menu-card-name">Mie Carbonara</div>
+                    <div class="menu-card-desc">Fusion mie goceng dengan saus carbonara creamy. Varian premium yang wajib dicoba!</div>
+                    <div class="level-selector"><span class="level-label">Level:</span>
+                        <button class="level-btn level-1 active" onclick="setLevel(this)">1</button>
+                        <button class="level-btn level-2" onclick="setLevel(this)">2</button>
+                        <button class="level-btn level-3" onclick="setLevel(this)">3</button>
+                        <button class="level-btn level-4" onclick="setLevel(this)">4</button>
+                        <button class="level-btn level-5" onclick="setLevel(this)">5</button>
+                    </div>
+                    <a href="https://wa.me/6285643559580?text=Halo%2C%20saya%20mau%20pesan%20Mie%20Carbonara%20(Level%201)%20-%20Rp%208.000" class="btn btn-wa w-full justify-center" style="font-size:.72rem;padding:.6rem 1rem" target="_blank"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+                </div>
+            </div>
+            <div class="menu-card fade-up stagger-7">
+                <div class="menu-card-img"><img src="c:\Users\HP 14\Downloads\indomie-jumbo.jpg" alt="Mie Jumbo" loading="lazy"><div class="menu-card-price">Rp 10.000</div><div style="position:absolute;top:1rem;left:1rem;background:var(--gold);color:var(--text);padding:.2rem .6rem;border-radius:50px;font-size:.65rem;font-weight:600">💪 JUMBO</div></div>
+                <div class="menu-card-body">
+                    <div class="menu-card-name">Mie Jumbo</div>
+                    <div class="menu-card-desc">Porsi jumbo 2x lebih besar untuk kamu yang lapar besar. Same taste, double portion!</div>
+                    <div class="level-selector"><span class="level-label">Level:</span>
+                        <button class="level-btn level-1 active" onclick="setLevel(this)">1</button>
+                        <button class="level-btn level-2" onclick="setLevel(this)">2</button>
+                        <button class="level-btn level-3" onclick="setLevel(this)">3</button>
+                        <button class="level-btn level-4" onclick="setLevel(this)">4</button>
+                        <button class="level-btn level-5" onclick="setLevel(this)">5</button>
+                    </div>
+                    <a href="https://wa.me/6285643559580?text=Halo%2C%20saya%20mau%20pesan%20Mie%20Jumbo%20(Level%201)%20-%20Rp%2010.000" class="btn btn-wa w-full justify-center" style="font-size:.72rem;padding:.6rem 1rem" target="_blank"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+                </div>
+            </div>
+            <div class="menu-card fade-up stagger-8">
+                <div class="menu-card-img"><img src="c:\Users\HP 14\Downloads\komplit.jfif" alt="Mie Komplit" loading="lazy"><div class="menu-card-price">Rp 12.000</div><div style="position:absolute;top:1rem;left:1rem;background:var(--accent);color:#fff;padding:.2rem .6rem;border-radius:50px;font-size:.65rem;font-weight:600">👑 KOMPLIT</div></div>
+                <div class="menu-card-body">
+                    <div class="menu-card-name">Mie Komplit</div>
+                    <div class="menu-card-desc">Mie paling lengkap! Dilengkapi bakso, pangsit, telur, dan sosis. Puas banget!</div>
+                    <div class="level-selector"><span class="level-label">Level:</span>
+                        <button class="level-btn level-1 active" onclick="setLevel(this)">1</button>
+                        <button class="level-btn level-2" onclick="setLevel(this)">2</button>
+                        <button class="level-btn level-3" onclick="setLevel(this)">3</button>
+                        <button class="level-btn level-4" onclick="setLevel(this)">4</button>
+                        <button class="level-btn level-5" onclick="setLevel(this)">5</button>
+                    </div>
+                    <a href="https://wa.me/6285643559580?text=Halo%2C%20saya%20mau%20pesan%20Mie%20Komplit%20(Level%201)%20-%20Rp%2012.000" class="btn btn-wa w-full justify-center" style="font-size:.72rem;padding:.6rem 1rem" target="_blank"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Minuman -->
+        <div id="tab-minuman" class="menu-grid" style="display:none">
+            <div class="menu-card fade-up stagger-1">
+                <div class="menu-card-img"><img src="c:\Users\HP 14\Downloads\es teh.jpeg" alt="Es Teh" loading="lazy"><div class="menu-card-price">Rp 3.000</div></div>
+                <div class="menu-card-body">
+                    <div class="menu-card-name">Es Teh</div>
+                    <div class="menu-card-desc">Es teh manis segar, pelengkap sempurna untuk mie pedasmu.</div>
+                    <a href="https://wa.me/6285643559580?text=Halo%2C%20saya%20mau%20pesan%20Es%20Teh%20-%20Rp%203.000" class="btn btn-wa w-full justify-center" style="font-size:.72rem;padding:.6rem 1rem" target="_blank"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+                </div>
+            </div>
+            <div class="menu-card fade-up stagger-2">
+                <div class="menu-card-img"><img src="c:\Users\HP 14\Downloads\es jeruk.jfif" alt="Es Jeruk" loading="lazy"><div class="menu-card-price">Rp 4.000</div></div>
+                <div class="menu-card-body">
+                    <div class="menu-card-name">Es Jeruk</div>
+                    <div class="menu-card-desc">Jeruk peras segar dengan es, menyegarkan tenggorokan setelah makan pedas.</div>
+                    <a href="https://wa.me/6285643559580?text=Halo%2C%20saya%20mau%20pesan%20Es%20Jeruk%20-%20Rp%204.000" class="btn btn-wa w-full justify-center" style="font-size:.72rem;padding:.6rem 1rem" target="_blank"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+                </div>
+            </div>
+            <div class="menu-card fade-up stagger-3">
+                <div class="menu-card-img"><img src="c:\Users\HP 14\Downloads\nutrisari.jfif" alt="Nutrisari" loading="lazy"><div class="menu-card-price">Rp 4.000</div></div>
+                <div class="menu-card-body">
+                    <div class="menu-card-name">Nutrisari</div>
+                    <div class="menu-card-desc">Nutrisari dingin dengan berbagai pilihan rasa buah. Manis dan segar!</div>
+                    <a href="https://wa.me/6285643559580?text=Halo%2C%20saya%20mau%20pesan%20Nutrisari%20-%20Rp%204.000" class="btn btn-wa w-full justify-center" style="font-size:.72rem;padding:.6rem 1rem" target="_blank"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+                </div>
+            </div>
+            <div class="menu-card fade-up stagger-4">
+                <div class="menu-card-img"><img src="c:\Users\HP 14\Downloads\milkshake.jfif" alt="Milkshake" loading="lazy"><div class="menu-card-price">Rp 8.000</div><div style="position:absolute;top:1rem;left:1rem;background:var(--gold);color:var(--text);padding:.2rem .6rem;border-radius:50px;font-size:.65rem;font-weight:600">⭐ PREMIUM</div></div>
+                <div class="menu-card-body">
+                    <div class="menu-card-name">Milkshake</div>
+                    <div class="menu-card-desc">Milkshake creamy dan lembut. Pilihan terbaik untuk menemani makan mie!</div>
+                    <a href="https://wa.me/6285643559580?text=Halo%2C%20saya%20mau%20pesan%20Milkshake%20-%20Rp%208.000" class="btn btn-wa w-full justify-center" style="font-size:.72rem;padding:.6rem 1rem" target="_blank"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+                </div>
+            </div>
+            <div class="menu-card fade-up stagger-5">
+                <div class="menu-card-img"><img src="c:\Users\HP 14\Downloads\es coklat.jfif" alt="Es Coklat" loading="lazy"><div class="menu-card-price">Rp 6.000</div></div>
+                <div class="menu-card-body">
+                    <div class="menu-card-name">Es Coklat</div>
+                    <div class="menu-card-desc">Es coklat manis dan menggoda. Cocok untuk penikmat coklat sejati!</div>
+                    <a href="https://wa.me/6285643559580?text=Halo%2C%20saya%20mau%20pesan%20Es%20Coklat%20-%20Rp%206.000" class="btn btn-wa w-full justify-center" style="font-size:.72rem;padding:.6rem 1rem" target="_blank"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Topping info -->
+        <div class="mt-10 text-center fade-up">
+            <p style="font-size:.85rem;color:var(--text-muted);margin-bottom:.75rem">Tambahkan topping favoritmu:</p>
+            <div class="flex justify-center gap-3 flex-wrap">
+                <span class="pay-badge">🧆 Bakso — Rp 2.000</span>
+                <span class="pay-badge">🥟 Pangsit — Rp 1.000</span>
+                <span class="pay-badge">🥚 Telur — Rp 3.000</span>
+                <span class="pay-badge">🌭 Sosis — Rp 3.000</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Promo -->
+<section class="section promo-section" id="promo">
+    <div class="max-w-6xl mx-auto relative z-10">
+        <div class="text-center mb-12 fade-up">
+            <div class="section-label" style="color:var(--accent)">🔥 Promo & Paket Spesial</div>
+            <h2 class="section-title" style="color:var(--bg)">Hemat Lebih Banyak</h2>
+            <p class="section-desc" style="margin:0 auto;color:rgba(242,240,235,0.65)">Paket combo spesial dengan harga lebih hemat. Buruan, sebelum berubah!</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="promo-card fade-up stagger-1">
+                <div class="promo-badge">PAKET HEMAT</div>
+                <div class="promo-title">Paket Nasi Padang... eh, Mie Santai</div>
+                <div class="promo-desc">Mie Goceng Original + Es Teh. Pas banget buat makan simpel dan hemat!</div>
+                <div><span class="promo-price">Rp 7.000</span><span class="promo-old">Rp 8.000</span></div>
+                <a href="https://wa.me/6285643559580?text=Halo%2C%20saya%20mau%20pesan%20Paket%20Hemat%20(Mie%20Goceng%20Original%20%2B%20Es%20Teh)%20-%20Rp%207.000" class="btn btn-wa w-full justify-center mt-4" style="font-size:.72rem;padding:.6rem 1rem" target="_blank"><i class="fab fa-whatsapp"></i> Pesan Paket</a>
+            </div>
+            <div class="promo-card fade-up stagger-2" style="border-color:var(--accent);background:rgba(217,79,30,0.08)">
+                <div class="promo-badge" style="background:var(--gold);color:var(--text)">⭐ BEST SELLER</div>
+                <div class="promo-title">Paket Jumbo Puas</div>
+                <div class="promo-desc">Mie Jumbo + Milkshake. Porsi gede + minuman premium = puas maksimal!</div>
+                <div><span class="promo-price">Rp 15.000</span><span class="promo-old">Rp 18.000</span></div>
+                <a href="https://wa.me/6285643559580?text=Halo%2C%20saya%20mau%20pesan%20Paket%20Jumbo%20Puas%20(Mie%20Jumbo%20%2B%20Milkshake)%20-%20Rp%2015.000" class="btn btn-primary w-full justify-center mt-4" style="font-size:.72rem;padding:.6rem 1rem" target="_blank"><i class="fab fa-whatsapp"></i> Pesan Paket</a>
+            </div>
+            <div class="promo-card fade-up stagger-3">
+                <div class="promo-badge">PAKET RAJA</div>
+                <div class="promo-title">Paket Family</div>
+                <div class="promo-desc">Beli 5 Mie gratis Es Teh. Semua topping lengkap, pengalaman makan terbaik!</div>
+                <div><span class="promo-price">Rp 25.000</span><span class="promo-old">Rp 27.000</span></div>
+                
+        <a href="https://wa.me/6285643559580?text=Halo%2C%20saya%20mau%20pesan%20Paket%20Komplit%20Rasa%20(Mie%20Komplit%20%2B%20Es%20Coklat)%20-%20Rp%2016.000" class="btn btn-wa w-full justify-center mt-4" style="font-size:.72rem;padding:.6rem 1rem" target="_blank"><i class="fab fa-whatsapp"></i> Pesan Paket</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimoni -->
+<section class="section" id="testimoni">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12 fade-up">
+            <div class="section-label">Testimoni Pelanggan</div>
+            <h2 class="section-title">Apa Kata Mereka?</h2>
+            <p class="section-desc" style="margin:0 auto">Ulasan jujur dari pelanggan setia Mie Goceng Level Up.</p>
+        </div>
+        <div class="testi-grid">
+            <div class="testi-card fade-up stagger-1">
+                <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="testi-text">"Mie Gocengnya enak banget! Level 3 pas pedesnya, baksonya jumbo. Porsinya banyak, harganya murah banget. Pasti balik lagi!"</p>
+                <div class="testi-author">
+                    <div class="testi-avatar">RF</div>
+                    <div><div class="testi-name">Daffa Gusti</div><div class="testi-info">Pelanggan Setia</div></div>
+                </div>
+            </div>
+            <div class="testi-card fade-up stagger-2">
+                <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="testi-text">"Cepat banget penyajiannya, ga sampe 5 menit udah ready. Porsinya banyak, harganya murah meriah! Cocok buat anak kosongan."</p>
+                <div class="testi-author">
+                    <div class="testi-avatar">SN</div>
+                    <div><div class="testi-name">Siti Nurhaliza</div><div class="testi-info">Pelanggan Baru</div></div>
+                </div>
+            </div>
+            <div class="testi-card fade-up stagger-3">
+                <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="testi-text">"Mie Carbonara nya juara! Ga nyangka mie seharga segini bisa seenak ini. Creamy, gurih, dan pedasnya pas. Recommended!"</p>
+                <div class="testi-author">
+                    <div class="testi-avatar">AP</div>
+                    <div><div class="testi-name">Sandrina</div><div class="testi-info">Foodie Karawang</div></div>
+                </div>
+            </div>
+            <div class="testi-card fade-up stagger-4">
+                <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="testi-text">"Sering pesan lewat WA, selalu fast response. Mie Komplit nya paling favorit — isinya lengkap, bakso pangsit telur sosis semua ada!"</p>
+                <div class="testi-author">
+                    <div class="testi-avatar">MR</div>
+                    <div><div class="testi-name">Maya Rahmawati</div><div class="testi-info">Pelanggan Setia</div></div>
+                </div>
+            </div>
+            <div class="testi-card fade-up stagger-5">
+                <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="testi-text">"Level 5 itu tantangan beneran! Tapi tetep enak, bukan pedes gak jelas. Mie Nyemek Pedas nya the best, kuahnya kental bumbunya meresap."</p>
+                <div class="testi-author">
+                    <div class="testi-avatar">DW</div>
+                    <div><div class="testi-name">Nadya</div><div class="testi-info">Spicy Challenger</div></div>
+                </div>
+            </div>
+            <div class="testi-card fade-up stagger-6">
+                <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="testi-text">"Bawa anak-anak makan di sini, semuanya suka. Yang ga suka pedas pesan original, yang suka pedas level 3. Tempatnya juga nyaman."</p>
+                <div class="testi-author">
+                    <div class="testi-avatar">RA</div>
+                    <div><div class="testi-name">Rina Agustina</div><div class="testi-info">Ibu Rumah Tangga</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Galeri -->
+<section class="section section-alt" id="galeri">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12 fade-up">
+            <div class="section-label">Galeri</div>
+            <h2 class="section-title">Intip Suasananya</h2>
+            <p class="section-desc" style="margin:0 auto">Suasana tempat makan, plating makanan, dan behind the scene dapur kami.</p>
+        </div>
+        <div class="gallery-grid fade-up">
+            <div class="gallery-item span-2" onclick="openLightbox(this)"><img src="c:\Users\HP 14\Downloads\kedai.jfif" alt="Suasana tempat makan Mie Goceng" loading="lazy"></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="c:\Users\HP 14\Downloads\plating.jfif" alt="Plating Mie Goceng yang cantik" loading="lazy"></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="c:\Users\HP 14\Downloads\dapur.jfif" alt="Behind the scene dapur" loading="lazy"></div>
+            <div class="gallery-item span-row" onclick="openLightbox(this)"><img src="c:\Users\HP 14\Downloads\images.jfif" alt="Mie Goceng Level Up siap saji" loading="lazy"></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="c:\Users\HP 14\Downloads\6-resep-minuman-segar.jpg" alt="Minuman segar" loading="lazy"></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="c:\Users\HP 14\Downloads\toping.jfif" alt="Topping pilihan" loading="lazy"></div>
+            <div class="gallery-item span-2" onclick="openLightbox(this)"><img src="c:\Users\HP 14\Downloads\Mi-Soden-4.webp" alt="Suasana malam di Mie Goceng" loading="lazy"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img id="lightbox-img" src="" alt="Galeri Mie Goceng">
+</div>
+
+<!-- Kontak -->
+<section class="section" id="kontak">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12 fade-up">
+            <div class="section-label">Kontak & Lokasi</div>
+            <h2 class="section-title">Temukan Kami</h2>
+            <p class="section-desc" style="margin:0 auto">Datang langsung atau pesan via WhatsApp. Kami siap melayani!</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="flex flex-col gap-4 fade-left">
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div><div class="contact-label">Alamat</div><div class="contact-value">Ruko Kartika Residence Blok A1 No 10, Klari, Karawang Timur, Jawa Barat 41317</div></div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                    <div><div class="contact-label">WhatsApp (Order Cepat)</div><div class="contact-value"><a href="https://wa.me/6285643559580?text=Halo%20Mie%20Goceng%2C%20saya%20ingin%20pesan!" target="_blank">+62 856-4355-9580</a></div></div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                    <div><div class="contact-label">Jam Buka</div><div class="contact-value">Setiap Hari: 10:00 - 22:00 WIB</div></div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-wallet"></i></div>
+                    <div><div class="contact-label">Pembayaran</div><div class="contact-value">
+                        <div class="payment-badges">
+                            <span class="pay-badge">💵 Cash</span>
+                            <span class="pay-badge">📱 QRIS</span>
+                            <span class="pay-badge">💳 E-Wallet</span>
+                        </div>
+                    </div></div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-share-nodes"></i></div>
+                    <div><div class="contact-label">Sosial Media</div><div class="contact-value" style="display:flex;gap:.75rem;margin-top:.25rem">
+                        <a href="https://instagram.com/fdlanomm" target="_blank" class="social-icon" style="width:36px;height:36px;font-size:.8rem"><i class="fab fa-instagram"></i></a>
+                        <a href="https://tiktok.com/@dillanosaurus" target="_blank" class="social-icon" style="width:36px;height:36px;font-size:.8rem"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/6285643559580" target="_blank" class="social-icon" style="width:36px;height:36px;font-size:.8rem"><i class="fab fa-whatsapp"></i></a>
+                    </div></div>
+                </div>
+            </div>
+            <div class="map-container fade-right">
+                <iframe src="https://maps.google.com/maps?q=Ruko+Kartika+Residence+Blok+A1+No+10+Klari+Karawang+Timur+Jawa+Barat+41317&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Lokasi Mie Goceng Level Up di Google Maps"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer" style="padding:3rem 2rem 1.5rem">
+    <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-8 mb-8" style="padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.1)">
+            <div>
+                <div class="flex items-center gap-2 mb-3">
+                    <span style="font-size:1.4rem">🍜</span>
+                    <div>
+                        <div style="font-size:.95rem;font-weight:700;color:var(--bg);line-height:1.1">Mie Goceng</div>
+                        <div style="font-size:.55rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)">Level Up</div>
+                    </div>
+                </div>
+                <p style="font-size:.82rem;opacity:.6;line-height:1.7;max-width:280px">Mie lezat dengan level pedas 1-5, bahan segar, harga bersahabat. 100% halal & siap saji 5 menit!</p>
+            </div>
+            <div>
+                <div style="font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--bg);margin-bottom:1rem">Link Cepat</div>
+                <div class="flex flex-col gap-2">
+                    <a href="#beranda" class="footer-link">Beranda</a>
+                    <a href="#tentang" class="footer-link">Tentang Kami</a>
+                    <a href="#menu" class="footer-link">Menu</a>
+                    <a href="#promo" class="footer-link">Promo</a>
+                    <a href="#testimoni" class="footer-link">Testimoni</a>
+                    <a href="#galeri" class="footer-link">Galeri</a>
+                    <a href="#kontak" class="footer-link">Kontak</a>
+                </div>
+            </div>
+            <div>
+                <div style="font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--bg);margin-bottom:1rem">Ikuti Kami</div>
+                <div class="flex gap-3 mb-4">
+                    <a href="https://instagram.com/fdlanomm" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://tiktok.com/@dillanosaurus" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/6285643559580" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <p style="font-size:.78rem;opacity:.5;line-height:1.6">Follow kami untuk update menu terbaru, promo spesial, dan konten seru lainnya!</p>
+            </div>
+        </div>
+        <div class="flex flex-col md:flex-row items-center justify-between gap-2">
+            <p style="font-size:.72rem;opacity:.4">&copy; 2026 Mie Goceng Level Up. Semua hak dilindungi.</p>
+            <p style="font-size:.72rem;opacity:.4">Karawang Timur, Jawa Barat</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Sticky WhatsApp -->
+<div class="sticky-wa">
+    <div class="sticky-wa-text">Pesan lewat WhatsApp</div>
+    <a href="https://wa.me/6285643559580?text=Halo%20Mie%20Goceng%2C%20saya%20ingin%20pesan!" class="sticky-wa-btn" target="_blank" aria-label="Pesan via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+
+<!-- Scroll to top -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Kembali ke atas">
+    <i class="fas fa-chevron-up"></i>
+</button>
+
+<script>
+// Preloader
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.getElementById('preloader').classList.add('hide');
+    }, 600);
+});
+
+// Header scroll
+const header = document.getElementById('header');
+const scrollTop = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+    if (window.scrollY > 500) {
+        scrollTop.classList.add('visible');
+    } else {
+        scrollTop.classList.remove('visible');
+    }
+});
+
+// Mobile menu
+function toggleMenu() {
+    document.getElementById('hamburger').classList.toggle('active');
+    document.getElementById('mobileMenu').classList.toggle('open');
+    document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
+}
+function closeMenu() {
+    document.getElementById('hamburger').classList.remove('active');
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+// Menu tabs
+function switchTab(tab, btn) {
+    document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-makanan').style.display = tab === 'makanan' ? 'grid' : 'none';
+    document.getElementById('tab-minuman').style.display = tab === 'minuman' ? 'grid' : 'none';
+    // Re-trigger animations
+    const grid = document.getElementById('tab-' + tab);
+    grid.querySelectorAll('.fade-up').forEach(el => {
+        el.classList.remove('visible');
+        setTimeout(() => el.classList.add('visible'), 50);
+    });
+}
+
+// Level selector
+function setLevel(btn) {
+    const card = btn.closest('.menu-card-body');
+    card.querySelectorAll('.level-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const level = btn.textContent;
+    const name = card.querySelector('.menu-card-name').textContent;
+    const price = card.closest('.menu-card').querySelector('.menu-card-price').textContent;
+    const waLink = card.querySelector('.btn-wa');
+    const msg = encodeURIComponent(`Halo, saya mau pesan ${name} (Level ${level}) - ${price}`);
+    waLink.href = `https://wa.me/6285643559580?text=${msg}`;
+    showToast(`Level ${level} dipilih untuk ${name}`);
+}
+
+// Toast
+function showToast(msg) {
+    const toast = document.getElementById('toast');
+    document.getElementById('toast-msg').textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+// Lightbox
+function openLightbox(item) {
+    const img = item.querySelector('img');
+    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('lightbox-img').alt = img.alt;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+}
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+});
+
+// Scroll animations (Intersection Observer)
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-up, .fade-left, .fade-right').forEach(el => {
+    observer.observe(el);
+});
+
+// Smooth scroll for anchor links (fallback)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            e.preventDefault();
+            const offset = 80;
+            const top = target.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top, behavior: 'smooth' });
+        }
+    });
+});
+
+// Counter animation for stats
+function animateCounters() {
+    document.querySelectorAll('.stat-num').forEach(el => {
+        const text = el.textContent;
+        // Simple animation - just add visible class handled by observer
+    });
+}
+</script>
+</body>
+</html>
